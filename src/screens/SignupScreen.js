@@ -1,16 +1,21 @@
 import React, { useContext } from 'react';
 import { View, StyleSheet } from 'react-native';
+import { NavigationEvents } from 'react-navigation';
 import  { Context as AuthContext } from '../context/authContext';
 import AuthForm from '../components/AuthForm';
 import NavLink from '../components/NavLink'
 
 const SignupScreen = ({ navigation }) => {
-    const { state, signup } = useContext(AuthContext);
+    const { state, signup, clearErrorMessage } = useContext(AuthContext);
+    console.log(state)
     return (
         <View style = {styles.container}>
+            <NavigationEvents
+                onWillBlur = {clearErrorMessage}
+            />
             <AuthForm 
                 headerText = 'Sign Up for Tracker'
-                errorMesage = { state.errorMessage }
+                errorMessage = { state.errorMessage }
                 onSubmit = { signup }
                 submitButtonText = 'Sign Up'
                 />
@@ -33,11 +38,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         marginBottom:50
-    },
-    link:{
-        fontSize: 16,
-        color: 'blue'
-
     }
 })
 
