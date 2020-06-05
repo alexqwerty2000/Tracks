@@ -13,4 +13,4 @@ web-report/
 # macOS
 .DS_Store
 
-_mockLocation.js
+# _mockLocation.js
