@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { NavigationEvents } from 'react-navigation';
-import  { Context as AuthContext } from '../context/authContext';
+import { Context as AuthContext } from '../context/authContext';
 import AuthForm from '../components/AuthForm';
 import NavLink from '../components/NavLink'
 
 const SignupScreen = ({ navigation }) => {
     const { state, signup, clearErrorMessage } = useContext(AuthContext);
-    console.log(state)
+    console.log('Clear error message from Sign Up', state);
     return (
         <View style = {styles.container}>
             <NavigationEvents
-                onWillBlur = {clearErrorMessage}
+                onWillBlur = { clearErrorMessage }
             />
             <AuthForm 
                 headerText = 'Sign Up for Tracker'

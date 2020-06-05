@@ -7,7 +7,6 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    console.log(errorMessage)
     return (
         <>
             <Spacer> 
@@ -26,7 +25,7 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
                     label = 'Password'
                     value = {password}
                     onChangeText = {setPassword}
-                    autoCorrect = 'none'
+                    autoCapitalize = 'none'
                     autoCorrect = {false}
                 />
                 { errorMessage ? <Text style = {styles.errorMessage}>{errorMessage}</Text> : null}

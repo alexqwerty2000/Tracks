@@ -3,7 +3,7 @@ import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Spacer from './Spacer';
 import { withNavigation } from 'react-navigation';
 
-const NavLink = ( {navigation, text, routeName } ) => {
+const NavLink = ({ navigation, text, routeName }) => {
     return (
         <TouchableOpacity onPress = {() => navigation.navigate(routeName)}>
             <Spacer>

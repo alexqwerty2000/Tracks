@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
-import { Context as AuthContext } from '../context/authContext';
-import { NavigationEvents } from 'react-navigation';
 import { View, StyleSheet } from 'react-native';
+import { NavigationEvents } from 'react-navigation';
+import { Context as AuthContext } from '../context/authContext';
 import NavLink from '../components/NavLink';
 import AuthForm from '../components/AuthForm';
 
-
-const SigninScreen = ({navigation}) => {
+const SigninScreen = ({ navigation }) => {
     const { state, signin, clearErrorMessage } = useContext(AuthContext);
+    console.log('Clear error message from Sign In', state);
     return (
         <View style = {styles.container}>
             <NavigationEvents
-                onWillBlur = {clearErrorMessage}
+                onWillBlur = { clearErrorMessage }
             />
             <AuthForm 
                 headerText = 'Sign In to your Account'
@@ -26,6 +26,7 @@ const SigninScreen = ({navigation}) => {
         </View>
     )
 }
+
 SigninScreen.navigationOptions = () => {
     return {
         headerShown: false
